@@ -22,7 +22,7 @@ const Plane = () => {
   const [planeRef] = usePlane(() => ({rotation: [-Math.PI / 2, 0, 0]}))
   return (
     <mesh ref={planeRef} position={[0,0,0]} rotation={[-Math.PI / 2, 0, 0]}>
-      <planeBufferGeometry args={[100, 100]}/>
+      <planeGeometry args={[100, 100]}/>
       <meshStandardMaterial color='lightpink'/>
     </mesh>
   )
@@ -64,8 +64,8 @@ const Scene = () => {
         <FallingBox/>
       </Physics>
       <RotatingBox/>
-      <Sky/>
-      <Stars/>
+      <Sky distance={450000} sunPosition={[-100, -100, 100]} inclination={0} azimuth={0.25}  />
+      <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
     </Canvas>
   )
 }
